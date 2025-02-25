@@ -19,13 +19,13 @@ const delay = ms => new Promise(res => setTimeout(res, ms)); // Função que usa
 
 client.on('message', async msg => {
 
-    if (msg.body.match(/(Apresentacao)/i) && msg.from.endsWith('@c.us')) {
+    if ((msg.body.match(/('Início')/i) || msg.body.match(/('início')/i)) || msg.body.match(/('inicio')/i) && msg.from.endsWith('@c.us')) {
         //const chat = await msg.getChat();
         //await delay(3000); //delay de 3 segundos
         //await chat.sendStateTyping(); // Simulando Digitação
         const contact = await msg.getContact(); //Pegando o contato
         const name = contact.pushname; //Pegando o nome do contato
-        await client.sendMessage(msg.from,'Olá! '+ name.split(" ")[0] + '\nSou o assistente virtual da casa de Cipriano. Como posso te ajudar hoje? \n\n Por favor, digite uma das opções abaixo:\n\n1 - Sobre nossa casa\n2 - Agendamento de Jogo de Búzios\n3 - Atendimento com Mizael da Estrada'); //Primeira mensagem de texto
+        await client.sendMessage(msg.from,'Olá! '+ name.split(" ")[0] + '\nSou a Assistente Virtual Casa de Cipriano. Como posso te ajudar hoje? \n\n Por favor, digite uma das opções abaixo:\n\n1 - Sobre nossa casa\n2 - Agendamento de Jogo de Búzios\n3 - Atendimento com Mizael da Estrada\n\n *Para reiniciar o atendimento, digite Início*' ); //Primeira mensagem de texto
     }
 
     //1 - Como funciona
