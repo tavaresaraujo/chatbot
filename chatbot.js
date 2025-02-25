@@ -19,7 +19,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms)); // Função que usa
 
 client.on('message', async msg => {
 
-    if ((msg.body.match(/('Início')/i) || msg.body.match(/('início')/i)) || msg.body.match(/('inicio')/i) && msg.from.endsWith('@c.us')) {
+    if (msg.body.match(/('Início')/i) && msg.from.endsWith('@c.us')) {
         //const chat = await msg.getChat();
         //await delay(3000); //delay de 3 segundos
         //await chat.sendStateTyping(); // Simulando Digitação
